@@ -4,7 +4,7 @@
   "description": "A Babel Plugin to strip blocks of code marked by special comment tags.",
   "main": "src/index.js",
   "license": "MIT",
-  "homepage": "felix-kaestner.com",
+  "homepage": "https://github.com/felix-kaestner/babel-plugin-transform-strip-block",
   "author": {
     "name": "Felix Kästner",
     "url": "https://felix-kaestner.com",
