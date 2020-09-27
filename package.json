@@ -1,10 +1,9 @@
 {
   "name": "babel-plugin-transform-strip-block",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A Babel Plugin to strip blocks of code marked by special comment tags.",
   "main": "src/index.js",
   "license": "MIT",
-  "private": true,
   "homepage": "felix-kaestner.com",
   "author": {
     "name": "Felix Kästner",
@@ -20,7 +19,7 @@
   ],
   "scripts": {
     "pkg": "pika build",
-    "publish": "pika publish",
+    "pkg:publish": "pika publish",
     "build": "BABEL_ENV=production babel src --out-dir lib --source-maps inline",
     "test": "BABEL_ENV=test jest",
     "test:dev": "BABEL_ENV=test jest --watchAll",
@@ -53,6 +52,7 @@
     "husky": "^4.3.0",
     "jest": "^26.3.0",
     "lint-staged": "^10.4.0",
+    "np": "^6.5.0",
     "prettier": "^2.1.2"
   },
   "lint-staged": {
