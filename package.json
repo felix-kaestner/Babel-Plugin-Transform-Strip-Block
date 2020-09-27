@@ -28,9 +28,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,json,md}\"",
     "version": "yarn build"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "@babel/core": "^7.0.0-0"
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.10.4"
   },
   "husky": {
     "hooks": {
@@ -40,7 +39,6 @@
   "devDependencies": {
     "@babel/cli": "^7.11.5",
     "@babel/core": "^7.11.5",
-    "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.9.2",
