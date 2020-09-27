@@ -1,0 +1,11 @@
+# Add 'repo' label to any root file changes
+repo:
+    - ./*
+
+# Add 'test' label to any change to files within the `test` dir
+test:
+    - test/**/*
+
+# Add 'source' label to any change to src files within the source dir
+source:
+    - src/**/*
