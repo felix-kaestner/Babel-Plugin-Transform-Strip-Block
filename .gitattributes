@@ -1,0 +1,4 @@
+# Set the default behavior for text file attributes.
+# - Treat them as text.
+# - Ensure no CRLF line-endings, neither on checkout nor on checkin.
+* text=auto eol=lf
