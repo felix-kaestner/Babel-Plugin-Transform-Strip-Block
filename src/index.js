@@ -1,4 +1,5 @@
 import {declare} from '@babel/helper-plugin-utils'
+import * as t from '@babel/types'
 
 export default declare((_api, opts) => {
   const {requireDirective = false, identifiers} = opts
@@ -37,6 +38,42 @@ export default declare((_api, opts) => {
         return
       }
     }
+  }
+
+  function HandleObjectExpression(path) {
+    const {node} = path
+    const properties = []
+
+    for (const identifier of identifiers) {
+      const {start, end} = identifier
+      let stripProperty = false
+      for (const property of node.properties) {
+        if (property.leadingComments && property.leadingComments.length > 0) {
+          for (const comment of property.leadingComments) {
+            if (new RegExp(start).test(comment.value)) {
+              comment.ignore = true
+              stripProperty = true
+            }
+          }
+        }
+
+        if (!stripProperty) {
+          properties.push(property)
+        }
+
+        if (property.trailingComments && property.trailingComments.length > 0) {
+          for (const comment of property.trailingComments) {
+            if (new RegExp(end).test(comment.value)) {
+              comment.ignore = true
+              stripProperty = false
+            }
+          }
+        }
+      }
+    }
+
+    path.skip()
+    path.replaceWith(t.inherits(t.objectExpression(properties), node))
   }
 
   return {
@@ -93,6 +130,11 @@ export default declare((_api, opts) => {
       VariableDeclaration(path) {
         if (skipStrip) return
         Handle(path)
+      },
+
+      ObjectExpression(path) {
+        if (skipStrip) return
+        HandleObjectExpression(path)
       },
     },
   }

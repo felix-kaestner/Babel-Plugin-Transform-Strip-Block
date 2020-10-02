@@ -29,7 +29,8 @@
     "version": "yarn pkg"
   },
   "dependencies": {
-    "@babel/helper-plugin-utils": "^7.10.4"
+    "@babel/helper-plugin-utils": "^7.10.4",
+    "@babel/types": "^7.11.5"
   },
   "husky": {
     "hooks": {
