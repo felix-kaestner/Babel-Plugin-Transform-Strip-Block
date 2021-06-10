@@ -72,7 +72,7 @@ export default declare((_api, opts) => {
       }
     }
 
-    path.skip()
+    path.stop()
     path.replaceWith(t.inherits(t.objectExpression(properties), node))
   }
 
